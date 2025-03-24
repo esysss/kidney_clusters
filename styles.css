@@ -1,85 +1,87 @@
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .container {
-    display: flex;
+  display: flex;
 }
 
 #scatterPlot {
-    border: 1px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 .sidebar {
-    margin-left: 20px;
-    width: 250px;
+  margin-left: 20px;
+  width: 250px;
 }
 
-.stats-box, .legend-box {
-    padding: 10px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
+.stats-box,
+.legend-box {
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-.tooltip {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 12px;
-    display: none;
+.tooltipq {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  display: none;
+  z-index: 1000; /* Ensure tooltip appears in front */
 }
 
 /* Cluster Legend Styling */
 .legend-box ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .legend-box li {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .legend-box li div {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 .legend-box li input {
-    border: none;
-    background: none;
-    font-size: 14px;
-    cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .legend-box li input:focus {
-    border-bottom: 1px solid #000;
-    outline: none;
+  border-bottom: 1px solid #000;
+  outline: none;
 }
 
 .legend-color {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-right: 8px;
-    border-radius: 50%;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border-radius: 50%;
 }
 
 #neighborTable {
-    max-height: 400px; /* or whatever height suits your design */
-    max-width: 20px;
-    overflow-y: auto;
-  }
+  max-height: 400px; /* or whatever height suits your design */
+  max-width: 20px;
+  overflow-y: auto;
+}
 
 #neighborTableWrapper {
-max-height: auto;  /* Adjust the height as per your requirement */
-max-width: 750px;
-overflow-x: auto;
+  max-height: auto; /* Adjust the height as per your requirement */
+  max-width: 750px;
+  overflow-x: auto;
 }

@@ -2,7 +2,7 @@ const svg = d3.select("#scatterPlot"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
 
-const tooltip = d3.select(".tooltip");
+const tooltip = d3.select(".tooltipq");
 
 let data; // Store data globally
 
