@@ -79,7 +79,7 @@ body {
   }
 
 #neighborTableWrapper {
-max-height: 500px;  /* Adjust the height as per your requirement */
-max-width: 700px;
+max-height: auto;  /* Adjust the height as per your requirement */
+max-width: 750px;
 overflow-x: auto;
 }
