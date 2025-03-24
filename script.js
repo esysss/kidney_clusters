@@ -77,6 +77,15 @@ d3.json("patient_data.json").then((loadedData) => {
 
   // Create scatter plot group
   const scatterPlot = svg.append("g");
+  svg.on("click", (event) => {
+    const clickedCircle = event.target.closest("circle");
+    if (!clickedCircle) {
+      // Reset all circles to default state
+      circles.attr("opacity", 0.7).attr("stroke", null).attr("stroke-width", null);
+      // Clear the neighbor table
+      updateNeighborTable([]);
+    }
+  });
 
   // Draw circles
   const circles = scatterPlot
@@ -143,9 +152,13 @@ d3.json("patient_data.json").then((loadedData) => {
     const neighborCount = parseInt(neighborSlider.value);
     const distanceMetric = "euclidean"; // Default distance metric
 
+    // Reset all circles to default opacity and remove stroke
+    circles.attr("opacity", 0.7).attr("stroke", null).attr("stroke-width", null);
+
     function calculateDistance(a, b) {
       if (distanceMetric === "euclidean") {
-        return Math.sqrt(Math.pow(a.Age - b.Age, 2) + Math.pow(a.Kidney_Function_Score - b.Kidney_Function_Score, 2));
+        out = Math.sqrt(Math.pow(a.Age - b.Age, 2) + Math.pow(a.Kidney_Function_Score - b.Kidney_Function_Score, 2));
+        return out.toFixed(2);
       } else if (distanceMetric === "manhattan") {
         return Math.abs(a.Age - b.Age) + Math.abs(a.Kidney_Function_Score - b.Kidney_Function_Score);
       } else {
@@ -194,6 +207,8 @@ d3.json("patient_data.json").then((loadedData) => {
     // Populate table body
     neighbors.forEach((patient) => {
       let row = document.createElement("tr");
+      const clusterColor = colorScale(patient.Cluster);
+      row.style.backgroundColor = clusterColor;
       columns.forEach((col) => {
         let td = document.createElement("td");
         td.textContent = patient[col];
