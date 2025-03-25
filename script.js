@@ -16,6 +16,8 @@ d3.json("patient_data.json").then((loadedData) => {
     (v) => v.length,
     (d) => d.Cluster
   );
+
+  //to create the statistic table
   const numClusters = clusterCounts.size;
   const avgAge = d3.mean(data, (d) => d.Age).toFixed(2);
   const avgCompScore = d3.mean(data, (d) => d.Compatibility_Score).toFixed(2);
@@ -148,6 +150,7 @@ d3.json("patient_data.json").then((loadedData) => {
     legendContainer.appendChild(legendItem);
   });
 
+  // Add the function to gather arougnd top closest neghnors
   function highlightNeighbors(selectedPatient) {
     const neighborCount = parseInt(neighborSlider.value);
     const distanceMetric = "euclidean"; // Default distance metric
@@ -166,6 +169,7 @@ d3.json("patient_data.json").then((loadedData) => {
       }
     }
 
+    // to have the distances between the selecter patient and its neighbors
     const distances = data.map((patient) => ({
       ...patient,
       distance: calculateDistance(selectedPatient, patient),
