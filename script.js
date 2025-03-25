@@ -1,6 +1,13 @@
-const svg = d3.select("#scatterPlot"),
-  width = +svg.attr("width"),
-  height = +svg.attr("height");
+const svg = d3.select("#scatterPlot");
+const width = window.innerWidth / 2.4;
+const height = width; // Keep it square
+
+svg.attr("width", width).attr("height", height);
+
+window.addEventListener("resize", () => {
+  const width = window.innerWidth / 2.4;
+  svg.attr("width", width).attr("height", width);
+});
 
 const tooltip = d3.select(".tooltipq");
 
@@ -101,7 +108,6 @@ d3.json("patient_data.json").then((loadedData) => {
     .attr("fill", (d) => colorScale(d.Cluster))
     .attr("opacity", 0.7)
     .on("mouseover", (event, d) => {
-      console.log(event.pageX + 10);
       tooltip
         .style("display", "block")
         .html(`Patient ID: ${d.Patient_ID}<br>Age: ${d.Age}<br>Kidney Score: ${d.Kidney_Function_Score}`)
