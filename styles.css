@@ -77,13 +77,13 @@ body {
 }
 
 #neighborTable {
-  max-height: 400px; /* or whatever height suits your design */
+  max-height: 400px; 
   max-width: 20px;
   overflow-y: auto;
 }
 
 #neighborTableWrapper {
-  max-height: auto; /* Adjust the height as per your requirement */
+  max-height: auto; 
   max-width: 750px;
   overflow-x: auto;
 }
